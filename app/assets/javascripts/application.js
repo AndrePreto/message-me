@@ -17,3 +17,6 @@
 //= require semantic-ui
 //= require_tree .
 
+document.addEventListener("turbolinks:load", function() {
+  $('.ui.dropdown').dropdown();
+})
