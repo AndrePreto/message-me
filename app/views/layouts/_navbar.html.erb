@@ -4,11 +4,17 @@
     Messages
   </a>
   <div class="right menu">
-    <div class="item">
-      <%= link_to 'Sign in', login_path, class:"ui blue button"%>
-    </div>
-    <div class="item">
-        <div class="ui orange button">Sign Up</div>
-    </div>
+    <% if logged_in? %>
+      <div class="ui dropdown item">
+        <%= current_user.username %> <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to 'Log Out', logout_path, method: :delete, class:"item"%>
+        </div>
+      </div>
+    <% else %>  
+      <div class="item">
+        <%= link_to 'Sign in or Sign Up', login_path, class:"ui orange button"%>
+      </div>
+    <% end %>
   </div>
 </div>
