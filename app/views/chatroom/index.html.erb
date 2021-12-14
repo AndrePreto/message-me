@@ -7,18 +7,17 @@
 
   <div class="twelve wide column">
     <div class="ui fluid card chatbox">
-      <div class="content">
-        <div class="ui feed">
+      <div class="content" id="messages">
+        <div class="ui feed" id="chatroom-messages">
           <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <%= form_with model: @message, url: message_path, class: 'ui reply form', local: true do |form| %>
+        <%= form_with model: @message, url: message_path, class: 'ui reply form', remote: true do |form| %>
           <div class="field">
             <div class="ui fluid icon input">
               <%= form.text_field :body, placeholder: 'Enter a message...' %>
               <%= form.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
-              
             </div>
           </div>
         <% end %>
