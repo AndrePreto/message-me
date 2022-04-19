@@ -4,7 +4,7 @@ class ChatroomController < ApplicationController
   # GET / -> root_path
   def index
     @message = Message.new
-    @messages = Message.all.order('id asc')
+    @messages = Message.order('created_at desc').limit(20)
   end
   
 end
